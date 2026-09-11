@@ -1,52 +1,197 @@
-.favorites {
-  padding: 2rem;
+.favorites-page {
   width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
-.favorites h2 {
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-bottom: 2rem;
-  text-align: center;
-  font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.favorites-empty {
-  text-align: center;
-  padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  margin: 2rem auto;
-  max-width: 600px;
+.favorites-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.favorites-empty h2 {
-  margin-bottom: 1rem;
+.favorites-header h2 {
   font-size: 2rem;
-  color: #e50914;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
 }
 
-.favorites-empty p {
-  color: #999;
-  font-size: 1.2rem;
+.fav-count-pill {
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  color: #ff6b81;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.fav-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fav-filter-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fav-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.fav-filter-input {
+  padding: 0.55rem 1rem 0.55rem 2.4rem;
+  background: #151922;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-family: inherit;
+  width: 220px;
+  transition: all 0.2s;
+}
+
+.fav-filter-input:focus {
+  outline: none;
+  border-color: #e50914;
+  width: 260px;
+}
+
+.clear-favorites-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-favorites-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ffffff;
+}
+
+.favorites-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem;
+  max-width: 580px;
+  margin: 3rem auto;
+  background: rgba(21, 25, 34, 0.45);
+  border-radius: 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.empty-heart-badge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(229, 9, 20, 0.1);
+  border: 1px solid rgba(229, 9, 20, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.empty-heart-icon {
+  color: #ff4757;
+}
+
+.favorites-empty-container h2 {
+  font-size: 1.85rem;
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+
+.favorites-empty-container p {
+  color: #94a3b8;
+  font-size: 1rem;
   line-height: 1.6;
+  margin: 0 0 2rem;
 }
 
+.explore-movies-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  background: #e50914;
+  color: #ffffff;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
 
-/* Animation for new favorites being added */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+.explore-movies-btn:hover {
+  background: #f40612;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 9, 20, 0.5);
+  color: #ffffff;
+}
+
+.no-filter-match {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #94a3b8;
+}
+
+.clear-filter-btn {
+  margin-top: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .favorites-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .fav-actions-bar {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .fav-filter-input {
+    width: 100%;
+  }
+  .fav-filter-input:focus {
+    width: 100%;
   }
 }
-
-.movies-grid > * {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
